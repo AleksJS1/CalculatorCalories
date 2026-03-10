@@ -222,3 +222,19 @@ npm run count:js
 - `feature/activity-tracking`
 - `feature/dashboard-aggregation`
 - `feature/readme-docs`
+
+## Branch Strategy in this repository
+
+Поточна історія розбита на етапні гілки:
+
+- `feature/project-setup` — ініціалізація Node.js/MongoDB, конфігурація запуску.
+- `feature/backend-core` — моделі, репозиторії, сервіси, API-роути та контролери.
+- `feature/frontend-ui` — UI (EJS, CSS, клієнтські JS-модулі).
+- `feature/project-docs` — документація проєкту.
+
+Рекомендований порядок PR:
+
+1. `feature/project-setup` → `main`
+2. `feature/backend-core` → `main`
+3. `feature/frontend-ui` → `main`
+4. `feature/project-docs` → `main`
