@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Калькулятор калорій</h1>
+      <p>Node.js + MongoDB + EJS</p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Профіль</h2>
+        <form id="profile-form" class="form-grid">
+          <input name="name" placeholder="Ім'я" required />
+          <input name="age" type="number" min="14" max="100" placeholder="Вік" required />
+          <select name="sex" required>
+            <option value="male">Чоловік</option>
+            <option value="female">Жінка</option>
+          </select>
+          <input name="heightCm" type="number" placeholder="Зріст (см)" required />
+          <input name="weightKg" type="number" step="0.1" placeholder="Вага (кг)" required />
+          <select name="activityLevel" required>
+            <option value="sedentary">Мінімальна</option>
+            <option value="light">Легка</option>
+            <option value="moderate">Середня</option>
+            <option value="active">Висока</option>
+            <option value="athlete">Спортсмен</option>
+          </select>
+          <button type="submit">Зберегти профіль</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Ціль</h2>
+        <div class="row">
+          <button id="recommend-lose">Рекоменд. на схуднення</button>
+          <button id="recommend-maintain">Рекоменд. підтримка</button>
+          <button id="recommend-gain">Рекоменд. набір</button>
+        </div>
+        <form id="goal-form" class="form-grid">
+          <select name="goalType" required>
+            <option value="lose">Схуднення</option>
+            <option value="maintain">Підтримка</option>
+            <option value="gain">Набір</option>
+          </select>
+          <input name="targetWeightKg" type="number" step="0.1" placeholder="Цільова вага (кг)" required />
+          <input name="targetCalories" type="number" placeholder="Цільові калорії" required />
+          <input name="proteinRatio" type="number" step="0.01" placeholder="Білки ratio" required />
+          <input name="fatRatio" type="number" step="0.01" placeholder="Жири ratio" required />
+          <input name="carbRatio" type="number" step="0.01" placeholder="Вуглеводи ratio" required />
+          <button type="submit">Зберегти ціль</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Прийом їжі</h2>
+        <form id="meal-form" class="form-grid">
+          <input name="date" type="date" required />
+          <select name="mealType" required>
+            <option value="breakfast">Сніданок</option>
+            <option value="lunch">Обід</option>
+            <option value="dinner">Вечеря</option>
+            <option value="snack">Перекус</option>
+          </select>
+          <select name="foodId" id="meal-food-select"></select>
+          <input name="grams" type="number" step="1" placeholder="Грами" required />
+          <button type="submit">Додати прийом їжі</button>
+        </form>
+        <ul id="meal-list" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Активність</h2>
+        <form id="activity-form" class="form-grid">
+          <input name="date" type="date" required />
+          <input name="name" placeholder="Назва активності" required />
+          <select name="intensity" required>
+            <option value="low">Низька</option>
+            <option value="medium">Середня</option>
+            <option value="high">Висока</option>
+          </select>
+          <input name="durationMin" type="number" placeholder="Тривалість (хв)" required />
+          <input name="userWeightKg" type="number" step="0.1" placeholder="Вага для розрахунку" />
+          <button type="submit">Додати активність</button>
+        </form>
+        <ul id="activity-list" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Вага</h2>
+        <form id="weight-form" class="form-grid">
+          <input name="date" type="date" required />
+          <input name="weightKg" type="number" step="0.1" placeholder="Вага (кг)" required />
+          <button type="submit">Додати запис ваги</button>
+        </form>
+        <ul id="weight-list" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Зведення</h2>
+        <div id="kpi-block" class="kpi"></div>
+        <h3>Тижнева історія</h3>
+        <pre id="weekly-series"></pre>
+        <h3>Тренд ваги</h3>
+        <pre id="weight-trend"></pre>
+      </section>
+    </main>
+
+    <script id="initial-data" type="application/json"><%- JSON.stringify(initialData || {}) %></script>
+    <script type="module" src="/static/js/app.js"></script>
+  </body>
+</html>
