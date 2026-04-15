@@ -6,6 +6,7 @@ import { createMealsModule } from './modules/mealsModule.js';
 import { createActivitiesModule } from './modules/activitiesModule.js';
 import { createWeightModule } from './modules/weightModule.js';
 import { createDashboardModule } from './modules/dashboardModule.js';
+import { createThemeModule } from './modules/themeModule.js';
 
 function readInitialData() {
   const node = document.getElementById('initial-data');
@@ -78,6 +79,7 @@ const weightModule = createWeightModule({
   store,
   onRefresh: refreshAll
 });
+const themeModule = createThemeModule();
 
 function renderAll() {
   profileModule.fillFromState();
@@ -90,6 +92,7 @@ function renderAll() {
 }
 
 function bindAll() {
+  themeModule.bind();
   profileModule.bind();
   goalsModule.bind();
   mealsModule.bind();

@@ -8,8 +8,23 @@
   </head>
   <body>
     <header class="header">
-      <h1>Калькулятор калорій</h1>
-      <p>Node.js + MongoDB + EJS</p>
+      <div class="header__content">
+        <div class="header__brand">
+          <p class="header__eyebrow">Calorie tracking app</p>
+          <h1>Калькулятор калорій</h1>
+          <p>Node.js + MongoDB + EJS</p>
+        </div>
+
+        <div class="theme-panel" aria-label="Панель вибору теми">
+          <span class="theme-panel__label">Тема</span>
+          <div class="theme-panel__buttons">
+            <button type="button" data-theme-option="aurora">Aurora</button>
+            <button type="button" data-theme-option="ocean">Ocean</button>
+            <button type="button" data-theme-option="forest">Forest</button>
+            <button type="button" data-theme-option="midnight">Midnight</button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main class="grid">
